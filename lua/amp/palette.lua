@@ -1,7 +1,7 @@
 local palette = {
     bg = "#161616",
     fg = "#FFF5E6",
-    cursor = "#FFA366",
+    cursor = "#E7894C",
     selection_bg = "#2D4448",
     selection_fg = "#FFF5E6",
     split = "#7A96A8",
@@ -16,7 +16,7 @@ local palette = {
     white = "#F5F5F5",
 
     bright_black = "#7A96A8",
-    bright_red = "#FFA366",
+    bright_red = "#E7894C",
     bright_green = "#CCEFD2",
     bright_yellow = "#FFDDA8",
     bright_blue = "#8FBFEE",
