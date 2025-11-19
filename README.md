@@ -1,5 +1,8 @@
 # nvim-amp-theme
 
+> [!WARNING]
+> This repository was mostly created using [Amp Code](https://ampcode.com/). If it works, it's because Amp is awesome. If it breaks, blame Amp (jk, please file an issue).
+
 A minimal, high-contrast dark theme for Neovim.
 
 Design based on the Amp Code theme provided by [Tim Culverhouse (rockorager)](https://github.com/rockorager).
