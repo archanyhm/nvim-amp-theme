@@ -17,7 +17,7 @@ function M.load()
   vim.g.colors_name = "amp"
 
   local colors = require("amp.palette")
-  local config = config_module.options
+  local config = config_module.get_options()
   local groups = require("amp.lib.mapper").apply(colors, config)
 
   for group, settings in pairs(groups) do

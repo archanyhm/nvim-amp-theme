@@ -1,6 +1,8 @@
 local M = {}
 
-M.options = {
+M.options = nil
+
+local defaults = {
     transparent_background = false,
     styles = {
         comments = { "italic" },
@@ -27,12 +29,22 @@ M.options = {
         dashboard = true,
         snacks = true,
         blink_cmp = true,
-        -- native_lsp is always enabled
     },
 }
 
 function M.setup(options)
-    M.options = vim.tbl_deep_extend("force", M.options, options or {})
+    if not M.options then
+        M.options = vim.tbl_deep_extend("force", vim.deepcopy(defaults), options or {})
+    else
+        M.options = vim.tbl_deep_extend("force", M.options, options or {})
+    end
+end
+
+function M.get_options()
+    if not M.options then
+        M.options = vim.deepcopy(defaults)
+    end
+    return M.options
 end
 
 return M

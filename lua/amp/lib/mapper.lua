@@ -7,6 +7,26 @@ local function merge_table(t1, t2)
     return t1
 end
 
+local function apply_styles(highlight, styles)
+    if not styles or #styles == 0 then
+        return highlight
+    end
+    for _, style in ipairs(styles) do
+        if style == "italic" then
+            highlight.italic = true
+        elseif style == "bold" then
+            highlight.bold = true
+        elseif style == "underline" then
+            highlight.underline = true
+        elseif style == "strikethrough" then
+            highlight.strikethrough = true
+        elseif style == "reverse" then
+            highlight.reverse = true
+        end
+    end
+    return highlight
+end
+
 function M.apply(colors, config)
     local groups = {}
 
@@ -29,6 +49,14 @@ function M.apply(colors, config)
                 -- Warn or ignore missing integration modules?
                 -- vim.notify("Amp: Integration module not found for " .. name, vim.log.levels.WARN)
             end
+        end
+    end
+
+    -- Apply style arrays as individual highlight attributes
+    for _, highlight in pairs(groups) do
+        if highlight.style then
+            apply_styles(highlight, highlight.style)
+            highlight.style = nil
         end
     end
 

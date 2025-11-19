@@ -35,7 +35,7 @@ Originally based on the Sourcegraph Amp Code colorscheme.
 
 ### AstroNvim
 
-Add the plugin to your `plugins/user.lua` or similar:
+Add the plugin to your `lua/plugins/user.lua` or similar:
 
 ```lua
 return {
@@ -43,24 +43,43 @@ return {
     "your-username/nvim-amp-theme",
     lazy = false,
     priority = 1000,
-    opts = {
-        transparent_background = false,
-        -- ...
-    },
-    config = function(_, opts)
-        require("amp").setup(opts)
-        vim.cmd.colorscheme("amp")
+    config = function(plugin, opts)
+      require("amp").setup(opts)
+      vim.cmd("colorscheme amp")
     end,
+    opts = {
+      transparent_background = false,
+      integrations = {
+        cmp = true,
+        gitsigns = true,
+        neotree = true,
+        telescope = true,
+        treesitter = true,
+        notify = true,
+        which_key = true,
+        dashboard = true,
+        snacks = true,
+        blink_cmp = true,
+      },
+    },
   },
 }
 ```
 
-Then set the colorscheme in your `astronvim/options.lua` or `polish` function:
+For AstroNvim v4, you can also set colorscheme in `astronvim/init.lua`:
 
 ```lua
--- options.lua
+-- astronvim/init.lua
 return {
-  -- ...
+  colorscheme = "amp",
+}
+```
+
+For AstroNvim v3, set it in `astronvim/options.lua`:
+
+```lua
+-- astronvim/options.lua
+return {
   colorscheme = "amp",
 }
 ```
