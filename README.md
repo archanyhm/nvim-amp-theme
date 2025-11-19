@@ -15,6 +15,16 @@ Originally based on the Sourcegraph Amp Code colorscheme.
   lazy = false, -- make sure we load this during startup if it is your main colorscheme
   priority = 1000, -- make sure to load this before all the other start plugins
   config = function()
+    require("amp").setup({
+      -- optional configuration
+      transparent_background = false,
+      integrations = {
+        telescope = true,
+        neotree = true,
+        which_key = true,
+        -- ... see config.lua for more
+      }
+    })
     vim.cmd([[colorscheme amp]])
   end,
 }
@@ -30,6 +40,14 @@ return {
     "your-username/nvim-amp-theme",
     lazy = false,
     priority = 1000,
+    opts = {
+        transparent_background = false,
+        -- ...
+    },
+    config = function(_, opts)
+        require("amp").setup(opts)
+        vim.cmd.colorscheme("amp")
+    end,
   },
 }
 ```
