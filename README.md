@@ -8,6 +8,11 @@ A minimal, high-contrast dark theme for Neovim.
 Design based on the Amp Code theme provided by [Tim Culverhouse (rockorager)](https://github.com/rockorager).
 Originally based on the Sourcegraph Amp Code colorscheme.
 
+## Variants
+
+- `amp` - Blue highlights (default)
+- `amp-orange` - Orange highlights
+
 ## Installation
 
 ### Lazy.nvim
@@ -82,5 +87,17 @@ For AstroNvim v3, set it in `astronvim/options.lua`:
 return {
   colorscheme = "amp",
 }
+```
+
+## Usage
+
+Switch between variants at runtime:
+
+```vim
+" Blue theme
+colorscheme amp
+
+" Orange theme
+colorscheme amp-orange
 ```
 
