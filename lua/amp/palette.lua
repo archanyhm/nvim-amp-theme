@@ -6,7 +6,7 @@ local palette = {
     selection_fg = "#FFF5E6",
     split = "#7A96A8",
 
-    black = "#2A2A2A",
+    black = "#0F0F0F",
     red = "#FF7A66",
     green = "#99C4BE",
     yellow = "#FFBB77",
